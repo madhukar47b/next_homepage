@@ -9,7 +9,11 @@ const Header = () => {
   return (
     <nav className="py-2 px-4 bg-[#67bdce]">
       <div className="flex justify-between  md:container md:mx-auto">
-        <div className="font-bold py-3 text-white">NEXT INVEST</div>
+        <div className="font-bold py-3 text-white">
+          <a className="text-white" href="/">
+            NEXT INVEST
+          </a>
+        </div>
         <div className="p-3">
           {menuList.map((item, index) => (
             <a
