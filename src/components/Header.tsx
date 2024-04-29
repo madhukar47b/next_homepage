@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 const Header = () => {
   const menuList: string[] = [
     "Investment opportunity",
