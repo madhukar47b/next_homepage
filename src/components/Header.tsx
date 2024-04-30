@@ -7,10 +7,10 @@ const Header = () => {
     { name: "About us", route: "Team" },
   ];
   return (
-    <nav className="py-2 px-4 bg-[#67bdce]">
-      <div className="flex justify-between  md:container md:mx-auto">
+    <nav className="px-4 bg-[#67bdce]">
+      <div className="flex justify-between  md:container md:mx-auto items-center">
         <div className="font-bold py-3 text-white">
-          <a className="text-white" href="/">
+          <a className="text-white flex" href="/">
             NEXT INVEST
           </a>
         </div>
@@ -24,6 +24,12 @@ const Header = () => {
               {item.name}
             </a>
           ))}
+          <button className="bg-[transparent] text-white px-10 py-2 font-semibold text-sm px-8 border border-white uppercase hover:border-[#7B61FF] hover:bg-[#7B61FF] hover:text-[white]">
+            Login
+          </button>
+          <button className="bg-[transparent] text-white px-10 py-2 font-semibold text-sm px-8 border border-white uppercase hover:border-[white] hover:bg-[white] hover:text-[#7B61FF] ms-3">
+            Register
+          </button>
         </div>
       </div>
     </nav>
