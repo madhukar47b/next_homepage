@@ -1,5 +1,5 @@
 import Image from "next/image";
-import shape from "../assets/image/shape.svg";
+import shape from "../assets/image/Shape.svg";
 
 const MainContent = () => {
   const titleText: string = "Meaningful investments in Main Street businesses";
