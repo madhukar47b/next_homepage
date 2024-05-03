@@ -1,5 +1,5 @@
 import Image from "next/image";
-import human from "../assets/image/Investing-cuate.svg";
+import human from "../../../assets/image/Investing-cuate.svg";
 const RaiseCapital = () => {
   return (
     <section className="relative h-[28rem]">

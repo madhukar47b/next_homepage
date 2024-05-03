@@ -1,6 +1,6 @@
 import Image from "next/image";
-import vectorShape from "../assets/image/vector.svg";
-import chart from "../assets/image/chart.svg";
+import vectorShape from "../../../assets/image/vector.svg";
+import chart from "../../../assets/image/chart.svg";
 
 const ChartContent = () => {
   return (

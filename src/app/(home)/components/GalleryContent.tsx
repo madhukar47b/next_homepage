@@ -1,5 +1,5 @@
 import Image from "next/image";
-import shapeImg from "../assets/image/Img.svg";
+import shapeImg from "../../../assets/image/Img.svg";
 
 const GalleryContent = () => {
   const renderCards = () => {
