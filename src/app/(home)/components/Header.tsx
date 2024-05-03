@@ -32,9 +32,9 @@ const Header = () => {
           >
             Login
           </Link>
-          <button className="bg-[transparent] text-white px-10 py-2 font-semibold text-sm px-8 border border-white uppercase hover:border-[white] hover:bg-[white] hover:text-[#7B61FF] ms-3">
+          <Link href="/register" className="bg-[transparent] text-white px-10 py-2 font-semibold text-sm px-8 border border-white uppercase hover:border-[white] hover:bg-[white] hover:text-[#7B61FF] ms-3">
             Register
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
