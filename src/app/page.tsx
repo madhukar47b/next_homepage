@@ -8,6 +8,7 @@ import GalleryContent from "@/components/GalleryContent";
 import MainContent from "@/components/MainContent";
 
 export default function Home() {
+  
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
