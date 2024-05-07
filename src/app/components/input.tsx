@@ -1,48 +1,35 @@
+// Input.tsx
 import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
+import { RegisterOptions, useFormContext } from "react-hook-form";
 
-interface InputFieldProps {
+interface InputProps {
   name: string;
-  placeholder: string;
-  rules?: Yup.SchemaOf<any>; // Use Yup.Schema for validation rules
-  label: string;
+  type?: string;
+  placeholder?: string;
+  rules?: RegisterOptions;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
+const InputField: React.FC<InputProps> = ({
   name,
+  type = "text",
   placeholder,
   rules,
-  label,
 }) => {
   const {
     register,
     formState: { errors },
-    handleSubmit,
-  } = useForm({
-    resolver: yupResolver(rules as Yup.ObjectSchema<any>), // Cast rules to ObjectSchema
-  });
-
-  const onSubmit = (data: any) => {
-    // Handle form submission with data
-    console.log(data);
-  };
+  } = useFormContext();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor={name}>{label}</label>
-        <input
-          {...register(name, rules)}
-          type="text"
-          placeholder={placeholder}
-          className="h-[36px] w-full border"
-          id={name} // Add id for label association
-        />
-        <p className="text-red-500">{errors[name]?.message}</p>
-      </div>
-    </form>
+    <div className="mb-6">
+      <input
+        {...register(name, rules)}
+        type={type}
+        placeholder={placeholder}
+        className="border block w-full h-[42px] rounded px-2"
+      />
+      <p className="text-red-500 text-sm text-left">{errors[name]?.message}</p>
+    </div>
   );
 };
 

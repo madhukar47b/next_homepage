@@ -1,65 +1,44 @@
-// "use client";
-// import React from "react";
-// import * as Yup from "yup";
-// import { FormProvider, useForm } from "react-hook-form";
-// import InputField from "@/app/components/input";
-// import { yupResolver } from "@hookform/resolvers/yup";
-
-// const schema = Yup.object().shape({
-//   firstName: Yup.string().required("First name is required"),
-// });
-
-// const Login: React.FC = () => {
-//   const methods = useForm({
-//     resolver: yupResolver(schema),
-//   });
-
-//   return (
-//     <FormProvider {...methods}>
-//       <form>
-//         <InputField
-//           name="firstName"
-//           placeholder="Enter your first name"
-//           label="First Name"
-//           schema={schema}
-//         />
-//         <button type="submit">Submit</button>
-//       </form>
-//     </FormProvider>
-//   );
-// };
-
-// export default Login;
-
 "use client";
 import React from "react";
+import { useForm, FormProvider } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import InputField from "@/app/components/input";
 
-const userSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  email: Yup.string()
-    .email("Invalid email format")
-    .required("Email is required"),
+const schema = Yup.object().shape({
+  email: Yup.string().required("Email is required"),
+  password: Yup.string().required("Password is required"),
 });
 
 const Login: React.FC = () => {
+  const methods = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    methods.reset();
+  };
+
   return (
-    <form>
-      <InputField
-        name="name"
-        placeholder="Enter your name"
-        rules={userSchema.fields.name} // Access specific field schema
-        label="Name"
-      />
-      <InputField
-        name="email"
-        placeholder="Enter your email"
-        rules={userSchema.fields.email} // Access specific field schema
-        label="Email"
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="flex justify-center h-[100vh] items-center">
+      <FormProvider {...methods}>
+        <form
+          onSubmit={methods.handleSubmit(onSubmit)}
+          className="text-center shadow-md p-8 border w-[400px] rounded"
+        >
+          <h2 className="font-bold mb-6 text-2xl">Login</h2>
+          <InputField name="email" type="text" placeholder="Email" />
+          <InputField name="password" type="password" placeholder="Password" />
+          <button
+            type="submit"
+            className="border px-8 py-1 hover:bg-slate-200 rounded h-[42px]"
+          >
+            Login
+          </button>
+        </form>
+      </FormProvider>
+    </div>
   );
 };
 
