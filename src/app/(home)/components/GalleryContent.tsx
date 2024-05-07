@@ -9,7 +9,7 @@ const GalleryContent = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/offerings")
+      .get("https://next-homepage-sigma.vercel.app/api/offerings")
       .then((response) => {
         setData(response?.data);
       })
@@ -37,8 +37,8 @@ const GalleryContent = () => {
                 <div className="text-sm">
                   <span className="font-bold text-[#7B61FF] me-1">
                     ${cardData.raisedAmount}
-                  </span> 
-                   raised of ${cardData.totalAmount}
+                  </span>
+                  raised of ${cardData.totalAmount}
                 </div>
               </div>
             </div>
