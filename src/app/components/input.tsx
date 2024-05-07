@@ -27,7 +27,6 @@ const InputField: React.FC<InputProps> = ({
         placeholder={placeholder}
         className="border block w-full h-[42px] px-2"
       />
-      {/* <p className="text-red-500 text-sm text-left">{errors[name]?.message}</p> */}
     </div>
   );
 };
