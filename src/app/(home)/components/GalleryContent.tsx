@@ -1,29 +1,44 @@
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 import shapeImg from "../../../assets/image/Img.svg";
 
 const GalleryContent = () => {
+  const [data, setData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/offerings")
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, []);
+
   const renderCards = () => {
     return (
       <div className="grid grid-cols-4 gap-4">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => {
+        {data?.offerings.map((cardData: any) => {
           return (
-            <div className="shadow-lg" key={index}>
+            <div className="shadow-lg" key={cardData.id}>
               <div className="">
                 <Image src={shapeImg} alt="img" />
               </div>
               <div className="p-4">
-                <h1 className="font-bold text-lg">Oxalis</h1>
+                <h1 className="font-bold text-lg">{cardData.name}</h1>
                 <p className="font-light text-stone-500 text-sm">
-                  Brooklyn, NY
+                  {cardData.city}
                 </p>
-                <p className="my-6 text-sm">
-                  A recognized leader in language immersion & early education,
-                  opening second school.
-                </p>
+                <p className="my-6 text-sm">{cardData.description}</p>
                 <progress value={70} max={100} className="w-full h-[8px]" />
                 <div className="text-sm">
-                  <span className="font-bold text-[#7B61FF]">$574,920</span>{" "}
-                  raised of $1,000,000
+                  <span className="font-bold text-[#7B61FF] me-1">
+                    ${cardData.raisedAmount}
+                  </span> 
+                   raised of ${cardData.totalAmount}
                 </div>
               </div>
             </div>

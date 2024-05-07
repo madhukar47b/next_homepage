@@ -1,4 +1,3 @@
-// Input.tsx
 import React from "react";
 import { RegisterOptions, useFormContext } from "react-hook-form";
 
@@ -26,7 +25,7 @@ const InputField: React.FC<InputProps> = ({
         {...register(name, rules)}
         type={type}
         placeholder={placeholder}
-        className="border block w-full h-[42px] rounded px-2"
+        className="border block w-full h-[42px] px-2"
       />
       <p className="text-red-500 text-sm text-left">{errors[name]?.message}</p>
     </div>

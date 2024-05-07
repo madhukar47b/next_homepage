@@ -32,7 +32,7 @@ const Login: React.FC = () => {
           <InputField name="password" type="password" placeholder="Password" />
           <button
             type="submit"
-            className="border px-8 py-1 hover:bg-slate-200 rounded h-[42px]"
+            className="border px-8 py-1 hover:bg-[#7B61FF] hover:text-white  h-[42px]"
           >
             Login
           </button>
