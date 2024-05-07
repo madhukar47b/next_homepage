@@ -24,7 +24,7 @@ progress::-webkit-progress-bar {
     top: 0;
     left: 0;
     right: 0;
-    height: 8px;
+    height: 3px;
     background: #7B61FF;
     transform-origin: 0%;
     z-index: 9999;
